@@ -1,0 +1,86 @@
+from flask import Flask, render_template_string, request
+import openai
+
+app = Flask(__name__)
+
+HTML_FORM = """
+<!doctype html>
+<title>AI Music Marketing</title>
+<h2>Artist Profile Setup</h2>
+<form method="post">
+  Vibe: <input name="vibe"><br>
+  Genre: <input name="genre"><br>
+  Influences: <input name="influences"><br>
+  Tone: <input name="tone"><br>
+  <input type="submit" value="Generate Captions">
+</form>
+{% if captions %}
+  <h3>Sample Captions</h3>
+  <ul>
+    {% for caption in captions %}
+      <li>{{ caption }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<a href="/chat">Try ChatGPT</a>
+"""
+
+CHAT_FORM = """
+<!doctype html>
+<title>ChatGPT Demo</title>
+<h2>Talk to ChatGPT</h2>
+<form method="post">
+  <textarea name="prompt" rows="4" cols="50" placeholder="Type anything..."></textarea><br>
+  <input type="submit" value="Send">
+</form>
+{% if response %}
+  <h3>AI Response:</h3>
+  <div style="background:#222;padding:10px;border-radius:5px;">{{ response }}</div>
+{% endif %}
+<a href="/">Back to Captions</a>
+"""
+
+openai.api_key = "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"  # <-
+
+def generate_caption(profile):
+    vibe = profile['vibe'].lower()
+    genre = profile['genre'].lower()
+    influences = profile['influences']
+    tone = profile['tone'].lower()
+    captions = []
+    captions.append(f"{vibe} in my veins, {genre} in my soul. Channelin' {influences}—this drop different. 🚀 #OnRepeat")
+    captions.append(f"If you know, you know. {genre} heat, {vibe} mood. S/o {influences} for the inspo. 🔥 #ForYou #Viral")
+    captions.append(f"Midnight thoughts, {genre} dreams. {vibe} energy, {tone} spirit. Inspired by {influences}. 🌙✨")
+    captions.append(f"No cap, I’m next. {genre} got me movin' different. {vibe} only. Shoutout {influences}. 💯 #LevelUp")
+    return captions
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    captions = None
+    if request.method == "POST":
+        profile = {
+            "vibe": request.form["vibe"],
+            "genre": request.form["genre"],
+            "influences": request.form["influences"],
+            "tone": request.form["tone"]
+        }
+        captions = generate_caption(profile)
+    return render_template_string(HTML_FORM, captions=captions)
+
+@app.route("/chat", methods=["GET", "POST"])
+def chat():
+    response = None
+    if request.method == "POST":
+        prompt = request.form["prompt"]
+        try:
+            completion = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt}]
+            )
+            response = completion.choices[0].message["content"]
+        except Exception as e:
+            response = f"Error: {e}"
+    return render_template_string(CHAT_FORM, response=response)
+
+if __name__ == "__main__":
+    app.run(debug=True)
