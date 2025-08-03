@@ -1,0 +1,848 @@
+
+import datetime
+
+def get_current_time():
+    """Returns the current date and time as a string."""
+    return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+conda install flask
+pip install flask
+
+/* Exact Logo-Matched Color Palette & Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
+:root {
+  --bg: #f4f7fa;
+  --fg: #1a2233;
+  --primary: #1a2233;
+  --secondary: #009ecf;
+  --accent: #ffffff;
+  --logo-blue: #1a2233;
+  --logo-cyan: #009ecf;
+  --logo-light: #eaf6fb;
+  --card-bg: #eaf6fb;
+  --transition: 0.3s ease;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--logo-light);
+  color: var(--logo-blue);
+  font-family: 'Poppins', 'Roboto', Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  transition: top var(--transition);
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header */
+header {
+  background: var(--logo-blue);
+  color: var(--accent);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+header nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+header nav a:hover {
+  color: var(--logo-cyan);
+}
+
+/* Logo Styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo {
+  height: 40px;
+  width: auto;
+}
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--logo-cyan);
+}
+
+/* Theme Toggle */
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Enhanced Hero Section */
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1rem;
+  background: url('https://source.unsplash.com/1600x900/?technology') center/cover no-repeat;
+  color: #fff;
+  animation: fadeIn 1.5s ease-in-out;
+  background-attachment: fixed;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,0.85);
+  color: #000;
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  box-shadow: 0 4px 24px rgba(26,34,51,0.08);
+  display: inline-block;
+  max-width: 800px;
+}
+
+/* Buttons */
+button, .cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--logo-blue);
+  color: var(--accent);
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition);
+}
+button:hover, .cta-button:hover {
+  background: var(--logo-cyan);
+  transform: scale(1.05);
+}
+.cta-secondary {
+  background: #1a2233;
+}
+.cta-secondary:hover {
+  background: #009ecf;
+}
+
+/* Sticky Navigation Bar */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  background: #1a2233;
+  padding: 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #009ecf;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1a2233;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+}
+.dropdown-menu a {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+.dropdown-menu a:hover {
+  background: #009ecf;
+}
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Parallax Scrolling for Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1rem;
+  background: url('https://source.unsplash.com/1600x900/?technology') center/cover no-repeat;
+  color: #fff;
+  animation: fadeIn 1.5s ease-in-out;
+  background-attachment: fixed;
+}
+.hero-content {
+  max-width: 800px;
+}
+
+/* Video Section Styles */
+.video-section {
+    background: linear-gradient(135deg, #1a2233 0%, #009ecf 100%);
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+    padding: 32px;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.elevateai-video {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.10);
+    margin-bottom: 24px;
+}
+
+/* Testimonials */
+.section--testimonials {
+  background: #f4f7fa;
+  padding: 4rem 1rem;
+}
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+}
+.testimonial {
+  flex: 0 0 80%;
+  scroll-snap-align: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.testimonial p {
+  font-style: italic;
+  color: #333;
+}
+.testimonial span {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #0078d4;
+}
+
+/* Contact Form Section */
+#contact-form {
+  margin: 40px 0;
+  text-align: center;
+}
+#contact-form h2 {
+  color: #0078d4 !important;
+}
+#contact-form form {
+  display: grid;
+  gap: 1rem;
+  max-width: 400px;
+  margin: auto;
+}
+#contact-form input,
+#contact-form textarea {
+  border: 1px solid var(--logo-blue);
+  background: var(--card-bg);
+  color: var(--logo-blue);
+}
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: var(--logo-cyan);
+  box-shadow: 0 0 8px rgba(0, 158, 207, 0.5);
+}
+#contact-form button {
+  background: var(--logo-blue);
+  color: var(--accent);
+}
+#contact-form button:hover {
+  background: var(--logo-cyan);
+}
+
+/* Footer */
+footer {
+  background: var(--logo-blue);
+  color: var(--accent);
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 3px solid var(--logo-cyan);
+}
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+footer a:hover {
+  color: var(--logo-cyan);
+}
+
+/* Floating Logo Styling */
+.floating-logo {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 80px;
+  height: auto;
+  opacity: 0.95;
+  z-index: 999;
+  box-shadow: 0 4px 16px rgba(26,34,51,0.12);
+  border-radius: 16px;
+  background: var(--accent);
+  padding: 8px;
+}
+
+/* Welcome Video Section Styles - Full Width, Clear Video */
+.welcome-video-section {
+  width: 100vw;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: calc(-50vw + 50%);
+}
+
+.welcome-video {
+  width: 100vw;
+  max-width: 100vw;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  display: block;
+}
+
+/* Services Section - Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  color: var(--logo-blue);
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+/* Smooth Scroll Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #contact-form form {
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
+"use strict";
+
+// Theme Toggle Module
+(() => {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (!themeToggleBtn) return;
+
+    const setTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    };
+
+    // Initialize from localStorage or default theme
+    const savedTheme = localStorage.getItem('theme') || '';
+    setTheme(savedTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        setTheme(isLight ? '' : 'light');
+    });
+})();
+
+// Mobile Navigation Toggle Module
+(() => {
+    const menuBtn = document.getElementById('mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    }
+})();
+
+// Scroll-Reveal Module using IntersectionObserver
+(() => {
+    const sections = document.querySelectorAll('.section');
+    const revealSection = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.transition = 'opacity 0.8s ease-out';
+                entry.target.style.opacity = 1;
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const observerOptions = { threshold: 0.2 };
+    const observer = new IntersectionObserver(revealSection, observerOptions);
+
+    sections.forEach(section => {
+        section.style.opacity = 0;
+        observer.observe(section);
+    });
+})();
+
+// Explosion Image Lazy Load
+document.addEventListener("DOMContentLoaded", function() {
+    const explosionImg = document.querySelector(".explosion-img");
+    if (explosionImg) {
+        const imgObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.getAttribute("data-src");
+                    img.onload = () => img.removeAttribute("data-src");
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        imgObserver.observe(explosionImg);
+    }
+});
+
+// Lazy Loading Images Module
+(() => {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const loadImage = (entry) => {
+        const img = entry.target;
+        img.src = img.getAttribute('data-src');
+        img.removeAttribute('data-src');
+    };
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadImage(entry);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    lazyImages.forEach(img => {
+        imageObserver.observe(img);
+    });
+})();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Performance & SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ElevateAI: GPT-powered bots, automation & custom AI pipelines.">
+  <meta property="og:title" content="ElevateAI – Next-Gen AI Platform">
+  <meta property="og:description" content="Plug AI into your stack with zero friction.">
+  <meta property="og:image" content="https://yourdomain.com/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <title>ElevateAI – Modern AI Services Platform</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Skip link for screen-readers -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Skip link for screen-readers -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="sticky-nav">
+    <nav class="nav-bar">
+      <a class="logo" href="#home" aria-label="ElevateAI home">ElevateAI</a>
+      <div class="nav-links">
+        <a href="#use-cases">Use Cases</a>
+        <a href="#features">Features</a>
+        <a href="#contact-form">Contact</a>
+        <div class="dropdown">
+          <div class="dropdown-menu">
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Welcome to ElevateAI</h1>
+        <p>Empowering your business with cutting-edge AI solutions tailored to your needs.</p>
+        <a href="#contact-form" class="cta-button">Get Started</a>
+        <a href="#features" class="cta-button cta-secondary">Learn More</a>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section id="use-cases" class="section">
+      <h2>Explore Our AI Solutions</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Customer Service Bots</h3>
+          <p>Deploy advanced AI chatbots that handle customer inquiries, resolve issues, and provide personalized support 24/7. Integrate with your CRM and helpdesk for seamless ticket management and analytics.</p>
+        </div>
+        <div class="card">
+          <h3>Marketing Content Generators</h3>
+          <p>Leverage AI to create engaging blog posts, social media content, email campaigns, and ad copy. Our tools analyze your brand voice and audience to maximize impact and reach.</p>
+        </div>
+        <div class="card">
+          <h3>AI Assistants</h3>
+          <p>Automate scheduling, data entry, and reporting with intelligent assistants. Integrate with tools like Google Workspace, Microsoft 365, and Slack to boost productivity and streamline workflows.</p>
+        </div>
+        <div class="card">
+          <h3>Predictive Analytics</h3>
+          <p>Use machine learning models to forecast sales, customer behavior, and market trends. Make data-driven decisions with real-time dashboards and actionable insights.</p>
+        </div>
+        <div class="card">
+          <h3>Document Automation</h3>
+          <p>Automate document processing, extraction, and classification. Reduce manual work and errors in contracts, invoices, and forms using AI-powered OCR and NLP.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section">
+      <h2 style="color:#000;">Why Choose ElevateAI?</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Seamless Integration</h3>
+          <p>Connect our AI solutions to your existing software stack with robust APIs and plug-ins. Fast onboarding and minimal disruption to your business operations.</p>
+        </div>
+        <div class="card">
+          <h3>Custom Solutions</h3>
+          <p>We design and build AI pipelines tailored to your unique data, industry, and goals. From proof-of-concept to full deployment, our team supports you every step of the way.</p>
+        </div>
+        <div class="card">
+          <h3>Scalable & Secure</h3>
+          <p>Our platform is built for growth, with enterprise-grade security, compliance, and performance. Scale from small teams to global organizations with confidence.</p>
+        </div>
+        <div class="card">
+          <h3>Expert Support</h3>
+          <p>Get access to AI experts for strategy, implementation, and ongoing optimization. We offer training, documentation, and dedicated support channels.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact-form" class="section section--contact">
+      <h2>Contact Us</h2>
+      <form novalidate>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ElevateAI. All rights reserved.</p>
+  </footer>
+  <img src="Minimalist AI Company Logo representing Enhancement.jpg" alt="ElevateAI Logo" class="floating-logo">
+
+
+  <script src="main.js"></script>
+  <script>
+document.querySelector('#contact-form form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value
+  };
+  const res = await fetch('http://localhost:5000/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+  if (res.ok) {
+    alert('Thank you! Confirmation email sent.');
+    form.reset();
+  } else {
+    alert('Error sending message.');
+  }
+});
+</script>
+</body>
+</html>
+from flask import Flask, request, jsonify
+from flask_mail import Mail, Message
+from flask_cors import CORS
+import sqlite3
+
+app = Flask(__name__)
+CORS(app)
+
+# Configure Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'c4yassinevan@gmail.com'
+app.config['MAIL_PASSWORD'] = 'syxb bymh dygi shvo'
+mail = Mail(app)
+
+# Initialize SQLite database
+def init_db():
+    conn = sqlite3.connect('contacts.db')
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS contacts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            email TEXT,
+            message TEXT,
+            date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+init_db()
+
+@app.route('/api/contact', methods=['POST'])
+def contact():
+    data = request.get_json()
+    name = data.get('name')
+    email = data.get('email')
+    message = data.get('message')
+
+    # Store in database
+    conn = sqlite3.connect('contacts.db')
+    c = conn.cursor()
+    c.execute('INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)', (name, email, message))
+    conn.commit()
+    conn.close()
+
+    # Send confirmation email
+    msg = Message(
+        subject='Thank you for contacting ElevateAI!',
+        sender=app.config['MAIL_USERNAME'],
+        recipients=[email],
+        body=f"Hi {name},\n\nThank you for reaching out! We received your message and will get back to you soon.\n\nBest,\nElevateAI Team"
+    )
+    #import pdb; pdb.set_trace()
+    mail.send(msg)
+
+    return jsonify({'message': 'Contact saved and email sent!'})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+from flask import Flask, render_template_string, request
+import openai
+
+app = Flask(__name__)
+
+HTML_FORM = """
+<!doctype html>
+<title>AI Music Marketing</title>
+<h2>Artist Profile Setup</h2>
+<form method="post">
+  Vibe: <input name="vibe"><br>
+  Genre: <input name="genre"><br>
+  Influences: <input name="influences"><br>
+  Tone: <input name="tone"><br>
+  <input type="submit" value="Generate Captions">
+</form>
+{% if captions %}
+  <h3>Sample Captions</h3>
+  <ul>
+    {% for caption in captions %}
+      <li>{{ caption }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<a href="/chat">Try ChatGPT</a>
+"""
+
+CHAT_FORM = """
+<!doctype html>
+<title>ChatGPT Demo</title>
+<h2>Talk to ChatGPT</h2>
+<form method="post">
+  <textarea name="prompt" rows="4" cols="50" placeholder="Type anything..."></textarea><br>
+  <input type="submit" value="Send">
+</form>
+{% if response %}
+  <h3>AI Response:</h3>
+  <div style="background:#222;padding:10px;border-radius:5px;">{{ response }}</div>
+{% endif %}
+<a href="/">Back to Captions</a>
+"""
+
+openai.api_key = "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"  # <-
+
+def generate_caption(profile):
+    vibe = profile['vibe'].lower()
+    genre = profile['genre'].lower()
+    influences = profile['influences']
+    tone = profile['tone'].lower()
+    captions = []
+    captions.append(f"{vibe} in my veins, {genre} in my soul. Channelin' {influences}—this drop different. 🚀 #OnRepeat")
+    captions.append(f"If you know, you know. {genre} heat, {vibe} mood. S/o {influences} for the inspo. 🔥 #ForYou #Viral")
+    captions.append(f"Midnight thoughts, {genre} dreams. {vibe} energy, {tone} spirit. Inspired by {influences}. 🌙✨")
+    captions.append(f"No cap, I’m next. {genre} got me movin' different. {vibe} only. Shoutout {influences}. 💯 #LevelUp")
+    return captions
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    captions = None
+    if request.method == "POST":
+        profile = {
+            "vibe": request.form["vibe"],
+            "genre": request.form["genre"],
+            "influences": request.form["influences"],
+            "tone": request.form["tone"]
+        }
+        captions = generate_caption(profile)
+    return render_template_string(HTML_FORM, captions=captions)
+
+@app.route("/chat", methods=["GET", "POST"])
+def chat():
+    response = None
+    if request.method == "POST":
+        prompt = request.form["prompt"]
+        try:
+            completion = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt}]
+            )
+            response = completion.choices[0].message["content"]
+        except Exception as e:
+            response = f"Error: {e}"
+    return render_template_string(CHAT_FORM, response=response)
+
+if __name__ == "__main__":
+    app.run(debug=True)
